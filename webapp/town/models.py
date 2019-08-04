@@ -12,7 +12,7 @@ class Town(models.Model):
 
     code = models.IntegerField(verbose_name="Código", unique=True)
     name_town = models.CharField(max_length=100, verbose_name='Nombre')
-    status = models.SmallIntegerField(choices = STATUS_CHOICES, default = INACTIVE)
+    status = models.SmallIntegerField(choices = STATUS_CHOICES, default = INACTIVE, verbose_name='Estado')
 
     class Meta:
         verbose_name = "Municipio"

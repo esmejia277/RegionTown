@@ -16,14 +16,18 @@
         </div>
         <div class="form-group">
             <label for="code">Nombre</label>
-            {{ form.name_town |add_class:"form-control"}}
+            {{ form.name_region |add_class:"form-control"}}
         </div>
         <div class="form-group">
-            <label for="code">Estado</label>
-            {{ form.status |add_class:"form-control"}}
+            <label for="code">Municipio</label>
+            {{ form.town |add_class:"form-control" | attr:"required=False" }}
+            <div class="alert alert-warning" role="alert">
+                Para seleccionar varias opciones presione la tecla <strong>CTRL</strong>
+            </div>
         </div>
+
         <button type="submit" class="btn btn-primary">Aceptar</button>
-        <a href="../list_town" type="submit" class="btn btn-primary">Volver</a>
+        <a href="{% url 'list_region' %}" type="submit" class="btn btn-primary">Volver</a>
     </form>
 </div>
 {% endblock %}

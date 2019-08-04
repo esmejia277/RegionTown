@@ -7,8 +7,8 @@ from .views import (ListTown, EditTown,
 
 urlpatterns = [
     
-    path('list', ListTown.as_view(template_name = "town/index.html"), name = "list"),
-    path('create', CreateTown.as_view(template_name = "town/create.html"), name = "create"),
-    path('edit/<int:pk>', EditTown.as_view(template_name = "town/edit.html"), name = "edit"),
-    path('delete/<int:pk>', DeleteTown.as_view(template_name = "town/delete.html"), name = "delete"),
+    path('list_town', ListTown.as_view(template_name = "town/list.html"), name = "list_town"),
+    path('create_town', CreateTown.as_view(template_name = "town/create.html"), name = "create_town"),
+    path('edit_town/<int:pk>', EditTown.as_view(template_name = "town/edit.html"), name = "edit_town"),
+    path('delete_town/<int:pk>', DeleteTown.as_view(template_name = "town/delete.html"), name = "delete_town"),
 ]

@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %} Bienvenido {% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    {% block header %}
+    <h1 class="text-center">Regiones</h1>
+    {% endblock %}
+
+    <div align="left" class="btn_crear mb-3">
+        <a href="create" type="button" class="btn btn-primary">Crear</a>
+    </div>
+
+    <table class="table table-striped table-hover table-bordered table-responsive text-center">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th width="100%">Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for region in object_list %}
+            <tr>
+                <td>{{ region.code }}</td>
+                <td>{{ region.name_region}}
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            {% for town in region.town.all%}
+                            <li class="list-group-item">
+                                Código: {{town.code}} :: Nombre: {{town.name_town}}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <form method="POST" action="delete_region/{{ region.id }}">
+                        {% csrf_token %}
+                        <div class="btn-group">
+                            <a href="edit_region/{{ region.id }}" title="Editar" type="button"
+                                class="btn btn-success">Editar
+                            </a>
+                            <button class="btn btn-danger" onclick="return deleteRegister();" type="submit">
+                                Eliminar
+                            </button>
+                        </div>
+                    </form>
+                </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'home' %}" class="btn btn-success">
+        Atrás
+    </a>
+</div>
+
+<script>
+    const deleteRegister = () => {
+        let value = confirm("¿Estás segura que quieres eliminar el registro?");
+        if (value) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+{% endblock %}

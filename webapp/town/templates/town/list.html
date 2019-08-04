@@ -1,4 +1,4 @@
-{% extends 'town/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 
 {% block title %} Bienvenido {% endblock title %}
@@ -11,7 +11,7 @@
     {% endblock %}
 
     <div align="left" class="btn_crear mb-3">
-        <a href="create" type="button" class="btn btn-primary">Crear</a>
+        <a href="create_town" type="button" class="btn btn-primary">Crear</a>
     </div>
 
     <table class="table table-striped table-hover table-bordered table-responsive text-center">
@@ -34,10 +34,11 @@
                 <td>Activo</td>
                 {% endif %}
                 <td>
-                    <form method="POST" action="delete/{{town.id}}">
+                    <form method="POST" action="delete_town/{{town.id}}">
                         {% csrf_token %}
                         <div class="btn-group">
-                            <a href="edit/{{ town.id }}" title="Editar" type="button" class="btn btn-success">Editar
+                            <a href="edit_town/{{ town.id }}" title="Editar" type="button"
+                                class="btn btn-success">Editar
                             </a>
                             <button class="btn btn-danger" onclick="return deleteRegister();" type="submit">
                                 Eliminar
@@ -49,6 +50,9 @@
             </tr>
         </tbody>
     </table>
+    <a href="{% url 'home' %}" class="btn btn-success">
+        Atrás
+    </a>
 </div>
 
 <script>

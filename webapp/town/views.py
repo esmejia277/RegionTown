@@ -17,7 +17,7 @@ class CreateTown(CreateView, SuccessMessageMixin):
     success_message = 'Town created successfully'
 
     def get_success_url(self):
-        return reverse('list')
+        return reverse('list_town')
     
 class EditTown(UpdateView, SuccessMessageMixin):
     model = Town
@@ -26,7 +26,7 @@ class EditTown(UpdateView, SuccessMessageMixin):
     success_message = 'Town updated successfully'
 
     def get_success_url(self):               
-        return reverse('list')
+        return reverse('list_town')
 
 class DeleteTown(DeleteView, SuccessMessageMixin):
     model = Town
@@ -34,7 +34,5 @@ class DeleteTown(DeleteView, SuccessMessageMixin):
     fields = '__all__'
 
     def get_success_url(self):               
-        return reverse('list')
+        return reverse('list_town')
 
-
-# Create your views here.
