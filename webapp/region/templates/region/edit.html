@@ -13,6 +13,7 @@
         <div class="form-group">
             <label for="code" class="">Código</label>
             {{ form.code |add_class:"form-control"}}
+            <p class="alert alert-warning">Este código debe ser <strong>único.</strong></p>
         </div>
         <div class="form-group">
             <label for="code">Nombre</label>
@@ -20,7 +21,7 @@
         </div>
         <div class="form-group">
             <label for="code">Municipio</label>
-            {{ form.town |add_class:"form-control" | attr:"required=False" }}
+            {{ form.town |add_class:"form-control" | attr:"default=''" }}
             <div class="alert alert-warning" role="alert">
                 Para seleccionar varias opciones presione la tecla <strong>CTRL</strong>
             </div>

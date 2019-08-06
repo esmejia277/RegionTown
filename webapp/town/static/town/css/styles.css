@@ -17,6 +17,10 @@
 
 }
 
+.alert{
+    font-size: 13px !important;
+}
+
 body{
     font-size: 1.2vw
 }
