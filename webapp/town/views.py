@@ -10,25 +10,23 @@ from django import forms
 class ListTown(ListView):
     model = Town
 
-class CreateTown(CreateView, SuccessMessageMixin):
+class CreateTown(CreateView):
     model = Town
     form = Town
     fields = '__all__'
-    success_message = 'Town created successfully'
 
     def get_success_url(self):
         return reverse('list_town')
     
-class EditTown(UpdateView, SuccessMessageMixin):
+class EditTown(UpdateView):
     model = Town
     form = Town
     fields = '__all__'
-    success_message = 'Town updated successfully'
 
     def get_success_url(self):               
         return reverse('list_town')
 
-class DeleteTown(DeleteView, SuccessMessageMixin):
+class DeleteTown(DeleteView):
     model = Town
     form = Town
     fields = '__all__'

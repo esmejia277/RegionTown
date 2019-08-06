@@ -6,7 +6,7 @@ from town.models import Town
 class Region(models.Model):
     code = models.IntegerField(verbose_name="Código", unique=True)
     name_region = models.CharField(max_length=100, verbose_name='Nombre')
-    town = models.ManyToManyField(Town, verbose_name="Municipio")
+    town = models.ManyToManyField(Town, verbose_name="Municipio", blank=True)
 
     class Meta:
         verbose_name = "Region"
